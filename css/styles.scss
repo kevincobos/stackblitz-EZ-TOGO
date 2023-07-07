@@ -1,0 +1,108 @@
+$lt-gray: #ddd;
+$background-dark: #e0c02f;
+$background-light: #efeb76;
+$background-pale: #e5ff88;
+
+// Height variables
+$carousel-item-height: 300px;
+
+
+@mixin zero-margin($pad-up-dn, $pad-left-right) {
+	margin:0px auto;
+	padding: $pad-up-dn $pad-left-right;
+}
+
+.row-header{
+    @include zero-margin(0px,0px);
+}
+
+.row-content {
+    @include zero-margin(50px,0px);
+    border-bottom: 1px ridge;
+    min-height:400px;
+    color: black;
+}
+
+.footer{
+    background-color: $background-pale;
+    @include zero-margin(20px, 0px);
+}
+
+.jumbotron {
+    @include zero-margin(70px,30px);
+    background: $background-light ;
+    color:black;
+}
+
+address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
+
+body{
+    padding:50px 0px 0px 0px;
+    color: black;
+    z-index:0;
+}
+
+.navbar-dark {
+     background-color: $background-dark;
+}
+
+.tab-content {
+    border-left: 1px solid $lt-gray;
+    border-right: 1px solid $lt-gray;
+    border-bottom: 1px solid $lt-gray;
+    padding: 10px;
+}
+
+.carousel {
+    background:$background-dark;
+
+    .carousel-item {
+        height: $carousel-item-height;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 300px;
+        }
+    }
+}
+
+#carouselButton {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+}
+
+.modal {    
+    .modal-header {
+        background-color: $background-dark;
+        color:floralwhite;
+        
+        /*if we want to change the color of the close button only if there is a letter in the button    
+        button{
+            color:floralwhite;
+        } */
+    }
+
+    .modal-body{
+        background-color: $background-pale;
+    }
+}
+
+// Intalling Sass in the project
+//Now we install the node module to support the compilation of the Scss file to a CSS file. 
+//To do this, type the following at the command prompt:
+//npm install --save-dev node-sass@version the version is needs to be specified depending on the version of node
+//This will install the node-sass NPM module into your project and also add it 
+//as a development dependency in your package.json file.
+//Next open your package.json file and add the following line into the scripts object there. 
+//This adds a script to enable the compilation of the Scss file into a CSS file:
+//    "scss": "node-sass -o css/ css/"
+//In order to transform the Scss file to a CSS file, type the following at the prompt:
+
+//     npm run scss

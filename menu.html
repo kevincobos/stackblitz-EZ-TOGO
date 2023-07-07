@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- I'm using 
+    node v18.16.1
+    Bootstrap 5.3.0 
+    jquery@3.7.0 
+    popper.js@1.14.3
+    node-sass@9.0.0  -->
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <!-- endbuild -->
+    
+    <title>EZ-TOGO</title>
+</head> 
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ms-auto" href="./aboutus.html"><img src="img/logo.png" height="30" width="41" alt="logo Image"></a>
+            <div class="collapse navbar-collapse " id="Navbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./menu.html"><span class="fa fa-list fa-lg"></span> Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./cart.html"><span class="fa fa-opencart fa-lg"></span> Cart</a></li>
+                </ul> 
+                <span class="navbar-text">
+                    <a class="btn" id="loginButton">
+                        <span class="fa fa-sign-in"></span> 
+                        Login
+                    </a>
+                </span>           
+            </div>
+        </div>
+    </nav>
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- This is going to be shown when item is selected -->
+    <div id="showFoodItemSelectedModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm" role="content">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"> Item Seleted </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <img  class="img img-thumbnail mx-auto d-block " src="img/1.png" alt="uthappizza">
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6">
+                                <label class="" for="totalItems">Total Selected</label>
+                            </div>                         
+                            <div class="col-6" >
+                                <input type="number" class="form-control" id="totalItems" aria-label="1" placeholder="1" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 col-12">
+                        <button type="submit" class="btn btn-primary btn-sm ml-1 d-block mx-auto">Done</button>        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="row row-content align-items-baseline">
+                <div class="col-sm-4 col-12">
+                    <div class="card">
+                        <h3 class="card-header bg-warning text-white text-center">Benedicts</h3>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="card-text bg-danger text-white ">Clasics</h5>
+                                    <div class="row col-12 mb-3">
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#1">                                            
+                                            <img  src="img/1.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l5">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#2">                                            
+                                            <img  src="img/2.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l6">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#3">                                            
+                                            <img  src="img/10.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l7">Classic Breakfast</label>  
+                                        </div>                                        
+                                    </div>
+                                </div>                                
+                                <div class="col-12">
+                                    <h5 class="card-text bg-info text-white">Specialties</h5>
+                                    <div class="row col-12 mb-3">
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#1">                                            
+                                            <img  src="img/5.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l5">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#2">                                            
+                                            <img  src="img/4.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l6">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#3">                                            
+                                            <img  src="img/3.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l7">Classic Breakfast</label>  
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12">
+                    <div class="card">
+                        <h3 class="card-header bg-warning text-white text-center">Eggs </h3>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="card-text bg-danger text-white ">Clasics</h5>
+                                    <div class="row col-12 mb-3">
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#1">                                            
+                                            <img  src="img/6.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l5">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#2">                                            
+                                            <img  src="img/2.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l6">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#3">                                            
+                                            <img  src="img/4.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l7">Classic Breakfast</label>  
+                                        </div>                                        
+                                    </div>
+                                </div>                                
+                                <div class="col-12">
+                                    <h5 class="card-text bg-info text-white">Specialties</h5>
+                                    <div class="row col-12 mb-3">
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#1">                                            
+                                            <img  src="img/9.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l5">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#2">                                            
+                                            <img  src="img/8.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l6">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#3">                                            
+                                            <img  src="img/6.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l7">Classic Breakfast</label>  
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12">
+                    <div class="card">
+                        <h3 class="card-header bg-warning text-white text-center">Omeletts</h3>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="card-text bg-danger text-white ">Clasics</h5>
+                                    <div class="row col-12 mb-3">
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#4">                                            
+                                            <img  src="img/8.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l8">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#5">                                            
+                                            <img  src="img/10.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l9">Classic Breakfast</label>  
+                                        </div> 
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="col-12">
+                                    <h5 class="card-text bg-info text-white">Specialties</h5>
+                                    <div class="row col-12 mb-3">
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#1">                                            
+                                            <img  src="img/9.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l5">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#2">                                            
+                                            <img  src="img/6.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l6">Classic Breakfast</label>  
+                                        </div>
+                                        <div class="col-6 col-sm-12 col-ms-12 col-lg-4 btn" data-bs-toggle="modal" href="#showFoodItemSelectedModal" id="#itemFood1" data-id="#3">                                            
+                                            <img  src="img/3.png" class="d-flex img-thumbnail align-self-center" alt="uthappizza" id="img1">
+                                            <label id="l7">Classic Breakfast</label>  
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">             
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./menu.html">Menu</a></li>
+                        <li><a href="./cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              1234 123rd Food Dreams Ave<br>
+		              Ramsey, MN, 55400<br>
+		              U.S.A.<br>
+		              <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+                      <i class="fa fa-envelope fa-lg"></i>: 
+                      <a href="mailto:togo@ez-togo.net">confusion@food.net</a>
+		           </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2023 EZ-TOGO</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <!-- build:js js/main.js -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- endbuild -->
+    
+    <!-- This is a comment, it is like it was deleted
+    <script>
+        $(document).ready(function(){
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    -->
+</body>
+    
+</html>
